@@ -88,6 +88,10 @@ import modules.results as results
 import modules.post_processing as post_processing
 import modules.spatial as spatial
 
+# Define relative input and output files path. [This should be moved to init]
+INPUT_FILES_DIR = Path(__file__).resolve().parent / "input_files"
+OUTPUT_FILES_DIR = Path(__file__).resolve().parent / "output_files"
+
 
 def initialise():
     """
@@ -129,9 +133,9 @@ def initialise():
 
     # Set-up file management constants
     constants['cwd'] = Path.cwd()
-    constants['input_folder'] = constants['cwd'] / 'input_files'
+    constants['input_folder'] = INPUT_FILES_DIR
     constants['input_folder_cache'] = constants['input_folder'] / '_cached_input_files'
-    constants['output_folder'] = constants['cwd'] / 'output_files' / constants['run_time']
+    constants['output_folder'] = OUTPUT_FILES_DIR / constants['run_time']
     constants['output_folder_input_copy'] = constants['output_folder'] / '_input_files'
     constants['output_folder_statistics'] = constants['output_folder'] / '_statistics'
     constants['output_folder_graphs'] = constants['output_folder'] / '_graphs'
